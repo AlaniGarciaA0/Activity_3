@@ -1,1 +1,5 @@
-# Original de Pacman
+Changelog
+Se han realizado actualizaciones en la lógica del juego para aumentar la dificultad del mismo, modificando el movimiento de los fantasmas. A continuación, se detallan los cambios principales respecto a la versión original:
+
+Nuevas funcionalidades
+- Fantasmas inteligentes: Los fantasmas ahora deciden su próximo movimiento en base a la posición del Pacman con motivo de perseguirlo. Primero se crea una lista options con las posibles direcciones de movimiento (arriba, abajo, derecha e izquierda) y se inicializan dos variables: best_option en None y best_distance con un valor positivo infinito. Posteriormente, se entra en un ciclo for para evaluar los posibles movimientos del fantasma. Luego, dentro del ciclo for, se procede a una condición if para determinar si la posición del fantasma es válida o choca contra una pared y se evalúa la distancia de donde está el fantasma con la del pacman, calculando el valor absoluto de esa diferencia, y si esa distancia es menor que la mejor distancia registrada, entonces la mejor distancia se actualiza con la nueva distancia y la mejor opción se guarda como la mejor opción a tomar en ese momento. Finalmente, si efectivamente existe una mejor opción y se toma, el fantasma actualiza las coordenadas X y Y para moverse en esa dirección.
