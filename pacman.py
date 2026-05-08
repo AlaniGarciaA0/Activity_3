@@ -140,10 +140,21 @@ def move():
                 vector(0, 5),
                 vector(0, -5),
             ]
-            plan = choice(options)
-            course.x = plan.x
-            course.y = plan.y
 
+            best_option = None
+            best_distance = float('inf')
+
+            for option in options:
+                if valid(point + option):
+                    distance = abs((point + option) - pacman)
+
+                    if distance < best_distance:
+                        best_distance = distance
+                        best_option = option
+
+            if best_option:
+                course.x = best_option.x
+                course.y = best_option.y
         up()
         goto(point.x + 10, point.y + 10)
         dot(20, 'red')
